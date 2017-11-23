@@ -1,0 +1,28 @@
+{
+  "name": "toggle-checkbox-radio",
+  "main": [
+    "dist/toggle-checkbox-radio.css"
+  ],
+  "homepage": "https://alexdonh.github.io/toggle-checkbox-radio",
+  "authors": [
+    "Alex Do <alex.donh@gmail.com>"
+  ],
+  "keywords": [
+    "bootstrap",
+    "css",
+    "css-only",
+    "toggle",
+    "checkbox",
+    "radio"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".gitignore",
+    "Gruntfile.js",
+    "README.md",
+    "bower.json",
+    "composer.json",
+    "package.json",
+    "docs"
+  ]
+}

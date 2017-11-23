@@ -1,0 +1,21 @@
+{
+  "name": "alexdonh/toggle-checkbox-radio",
+  "version": "1.0.0",
+  "description": "CSS only, bootstrap compatible toggle, checkbox and radio buttons",
+  "keywords": [
+    "bootstrap",
+    "css",
+    "css-only",
+    "toggle",
+    "checkbox",
+    "radio"
+  ],
+  "authors": [
+    {
+      "name": "Alex Do",
+	  "email": "alex.donh@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://alexdonh.github.io/toggle-checkbox-radio/"
+}
