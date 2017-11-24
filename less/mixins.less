@@ -1,0 +1,137 @@
+﻿.toggle-size(@font-size, @line-height) {
+  @line-height-computed: floor((@font-size * @line-height));
+  height: @line-height-computed;
+  line-height: @line-height-computed;
+  padding-left: (@line-height-computed * 2);
+
+  &:before {
+    width: (@line-height-computed * 2);
+    height: @line-height-computed;
+    border-radius: (@line-height-computed * 2);
+  }
+
+  input[type=radio],
+  input[type=checkbox] {
+    &:before {
+      width: (@line-height-computed * 2 + 2);
+      height: (@line-height-computed + 2);
+      border-radius: (@line-height-computed * 2);
+    }
+
+    &:after {
+      width: (@line-height-computed - 4);
+      height: (@line-height-computed - 4);
+    }
+
+    &:checked {
+      &:after {
+        transform: translateX(@line-height-computed);
+      }
+    }
+  }
+}
+
+.toggle-color(@color) {
+  background-color: inherit;
+  color: inherit;
+
+  &:before {
+    border-color: @color;
+    background-color: @color;
+  }
+
+  input[type=radio],
+  input[type=checkbox] {
+    &:after {
+      background-color: @color;
+    }
+  }
+}
+
+.radio-size(@font-size, @line-height) {
+  @line-height-computed: floor((@font-size * @line-height));
+  height: @line-height-computed;
+  line-height: @line-height-computed;
+  padding-left: @line-height-computed !important;
+
+  &:before {
+    width: @line-height-computed;
+    height: @line-height-computed;
+  }
+
+  input[type=radio] {
+    width: @line-height-computed;
+    height: @line-height-computed;
+
+    &:before {
+      width: @line-height-computed;
+      height: @line-height-computed;
+    }
+  }
+}
+
+.radio-color(@color) {
+  input[type=radio] {
+    &:checked {
+      &:before {
+        border-color: @color;
+      }
+
+      &:after {
+        background-color: @color;
+      }
+    }
+  }
+}
+
+.checkbox-size(@font-size, @line-height, @border-radius) {
+  @line-height-computed: floor((@font-size * @line-height));
+  height: @line-height-computed;
+  line-height: @line-height-computed;
+  padding-left: @line-height-computed !important;
+
+  &:before {
+    width: @line-height-computed;
+    height: @line-height-computed;
+    border-radius: @border-radius;
+  }
+
+  input[type=checkbox] {
+    width: @line-height-computed;
+    height: @line-height-computed;
+
+    &:before {
+      width: @line-height-computed;
+      height: @line-height-computed;
+      border-radius: @border-radius;
+    }
+  }
+}
+
+.checkbox-color(@color) {
+  input[type=checkbox] {
+    &:checked {
+      &:before {
+        background-color: transparent;
+      }
+
+      &:after {
+        border-color: @color;
+      }
+    }
+  }
+
+  &.checkbox-inverse {
+    input[type=checkbox] {
+      &:checked {
+        &:before {
+          background-color: @color;
+        }
+
+        &:after {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+}
