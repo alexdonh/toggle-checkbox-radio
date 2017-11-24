@@ -154,7 +154,7 @@ module.exports = function (grunt) {
                         src: '**',
                         dest: 'toggle-checkbox-radio-<%= pkg.version %>/'
                     }, {
-                        src: ['bower.json', 'composer.json', 'package.json'],
+                        src: ['LICENSE'],
                         dest: 'toggle-checkbox-radio-<%= pkg.version %>/'
                     }
                 ]
