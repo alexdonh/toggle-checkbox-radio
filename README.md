@@ -29,7 +29,7 @@ Several quick start options are available:
 </head>
 ```
 
-2. Add `toggle`, `checkbox` or `radio`:
+2. Add `toggle`, `checkbox` or `radio` class:
 
 ```
 <label class="toggle">
