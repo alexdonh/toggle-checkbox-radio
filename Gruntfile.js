@@ -42,16 +42,16 @@ module.exports = function (grunt) {
             }
         },
 
-        sass: {
+        less: {
             options: {
                 strictMath: true,
                 sourceMap: true,
                 outputSourceFiles: true,
                 sourceMapURL: '<%= pkg.name %>.css.map',
-                sourceMapFilename: '<%= sass.css.dest %>.map'
+                sourceMapFilename: '<%= less.css.dest %>.map'
             },
             css: {
-                src: 'sass/toggle-checkbox-radio.scss',
+                src: 'less/toggle-checkbox-radio.less',
                 dest: 'dist/<%= pkg.name %>.css'
             }
         },
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
             options: {
                 banner: '<%= banner %>'
             },
-            src: '<%= sass.css.dest %>'
+            src: '<%= less.css.dest %>'
         },
 
         copy: {
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
                 compatibility: 'ie8'
             },
             css: {
-                src: '<%= sass.css.dest %>',
+                src: '<%= less.css.dest %>',
                 dest: 'dist/<%= pkg.name %>.min.css'
             }
         },
@@ -106,7 +106,7 @@ module.exports = function (grunt) {
                 'overqualified-elements': false
             },
             css: {
-                src: '<%= sass.css.dest %>'
+                src: '<%= less.css.dest %>'
             }
         },
 
@@ -137,7 +137,7 @@ module.exports = function (grunt) {
                 options: {
                     map: true
                 },
-                src: '<%= sass.css.dest %>'
+                src: '<%= less.css.dest %>'
             }
         },
 
@@ -166,8 +166,8 @@ module.exports = function (grunt) {
                 files: '<%= jshint.gruntfile.src %>',
                 tasks: 'jshint:gruntfile'
             },
-            sass: {
-                files: 'sass/*.scss',
+            less: {
+                files: 'less/*.less',
                 tasks: 'build'
             }
         }
@@ -182,7 +182,7 @@ module.exports = function (grunt) {
     // to update version number, use grunt version::x.y.z
 
     // CSS distribution
-    grunt.registerTask('build', ['clean:css', 'sass', 'autoprefixer', 'usebanner', 'cssmin']);
+    grunt.registerTask('build', ['clean:css', 'less', 'autoprefixer', 'usebanner', 'cssmin']);
 
     // Copy dist to docs
     grunt.registerTask('docs', ['clean:docs', 'copy:docs']);
