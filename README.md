@@ -48,7 +48,7 @@ Several quick start options are available:
 Checkout the [samples](https://alexdonh.github.io/toggle-checkbox-radio/) page for further information.
 
 
-## Requirements
+## Dependencies
 
 * NO dependencies ;)
 
