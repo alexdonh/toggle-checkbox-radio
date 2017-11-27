@@ -24,24 +24,6 @@ module.exports = function (grunt) {
             docs: 'docs/assets'
         },
 
-        jshint: {
-            options: {
-                jshintrc: 'js/.jshintrc'
-            },
-            gruntfile: {
-                options: {
-                    'node': true
-                },
-                src: 'Gruntfile.js'
-            },
-            main: {
-                src: 'js/*.js'
-            },
-            i18n: {
-                src: 'js/i18n/*.js'
-            }
-        },
-
         less: {
             options: {
                 strictMath: true,
@@ -163,8 +145,7 @@ module.exports = function (grunt) {
 
         watch: {
             gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
-                tasks: 'jshint:gruntfile'
+                files: 'Gruntfile.js'
             },
             less: {
                 files: 'less/*.less',
@@ -185,10 +166,10 @@ module.exports = function (grunt) {
     grunt.registerTask('build', ['clean:css', 'less', 'autoprefixer', 'usebanner', 'cssmin']);
 
     // Copy dist to docs
-    grunt.registerTask('docs', ['clean:docs', 'copy:docs']);
+    grunt.registerTask('docs', ['build', 'clean:docs', 'copy:docs']);
 
     // Development watch
-    grunt.registerTask('watch', ['build', 'watch']);
+    grunt.registerTask('dev', ['docs', 'watch']);
 
     // Full distribution
     grunt.registerTask('dist', ['build', 'compress']);

@@ -10,8 +10,8 @@
     border-radius: (@line-height-computed * 2);
   }
 
-  input[type=radio],
-  input[type=checkbox] {
+  > input[type=radio],
+  > input[type=checkbox] {
     &:before {
       width: (@line-height-computed * 2 + 2);
       height: (@line-height-computed + 2);
@@ -32,16 +32,9 @@
 }
 
 .toggle-color(@color) {
-  background-color: inherit;
-  color: inherit;
-
-  &:before {
-    border-color: @color;
-    background-color: @color;
-  }
-
-  input[type=radio],
-  input[type=checkbox] {
+  > input[type=radio],
+  > input[type=checkbox] {
+    &:before,
     &:after {
       background-color: @color;
     }
@@ -59,7 +52,7 @@
     height: @line-height-computed;
   }
 
-  input[type=radio] {
+  > input[type=radio] {
     width: @line-height-computed;
     height: @line-height-computed;
 
@@ -71,7 +64,7 @@
 }
 
 .radio-color(@color) {
-  input[type=radio] {
+  > input[type=radio] {
     &:checked {
       &:before {
         border-color: @color;
@@ -96,7 +89,7 @@
     border-radius: @border-radius;
   }
 
-  input[type=checkbox] {
+  > input[type=checkbox] {
     width: @line-height-computed;
     height: @line-height-computed;
 
@@ -109,7 +102,7 @@
 }
 
 .checkbox-color(@color) {
-  input[type=checkbox] {
+  > input[type=checkbox] {
     &:checked {
       &:before {
         background-color: transparent;
@@ -122,14 +115,10 @@
   }
 
   &.checkbox-inverse {
-    input[type=checkbox] {
+    > input[type=checkbox] {
       &:checked {
         &:before {
           background-color: @color;
-        }
-
-        &:after {
-          border-color: #fff;
         }
       }
     }
