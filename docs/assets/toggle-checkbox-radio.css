@@ -32,6 +32,7 @@ label.toggle:before {
   left: 0;
   top: 0;
   border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 label.toggle > input[type=radio],
 label.toggle > input[type=checkbox] {
@@ -54,6 +55,7 @@ label.toggle > input[type=checkbox]:after {
   visibility: visible;
   transition: all .1s ease;
   background-color: #fff;
+  box-sizing: border-box;
 }
 label.toggle > input[type=radio]:before,
 label.toggle > input[type=checkbox]:before {
@@ -219,6 +221,7 @@ label.radio:before {
   border: 1px solid #ccc;
   border-radius: 100%;
   background-color: #fff;
+  box-sizing: border-box;
 }
 label.radio > input[type=radio] {
   position: absolute !important;
@@ -239,6 +242,7 @@ label.radio > input[type=radio]:after {
   left: 0;
   top: 0;
   transition: all .1s ease;
+  box-sizing: border-box;
 }
 label.radio > input[type=radio]:before {
   border-radius: 100%;
@@ -375,6 +379,7 @@ label.checkbox:before {
   top: 0;
   border: 1px solid #ccc;
   background-color: #fff;
+  box-sizing: border-box;
 }
 label.checkbox > input[type=checkbox] {
   position: absolute !important;
@@ -395,6 +400,7 @@ label.checkbox > input[type=checkbox]:after {
   left: 0;
   top: 0;
   transition: all .1s ease;
+  box-sizing: border-box;
 }
 label.checkbox > input[type=checkbox]:before {
   border: 1px solid transparent;
