@@ -1,10 +1,14 @@
 /*!
- * toggle-checkbox-radio v1.0.1 (https://alexdonh.github.io/toggle-checkbox-radio/)
+ * toggle-checkbox-radio v1.0.2 (https://alexdonh.github.io/toggle-checkbox-radio/)
  *
  * Copyright 2017 Alex Do
  * Licensed under MIT (https://github.com/alexdonh/toggle-checkbox-radio/blob/master/LICENSE)
  */
 
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 label.toggle,
 label.checkbox,
 label.radio {

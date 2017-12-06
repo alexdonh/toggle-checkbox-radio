@@ -1,6 +1,11 @@
 @import "variables";
 @import "mixins";
 
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 label {
   &.toggle,
   &.checkbox,

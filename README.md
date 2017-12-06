@@ -12,7 +12,7 @@ CSS only, bootstrap compatible toggle, checkbox and radio buttons.
 
 Several quick start options are available:
 
-* [Download the latest release](https://github.com/alexdonh/toggle-checkbox-radio/releases/download/1.0.1/toggle-checkbox-radio-1.0.1.zip "Download toggle-checkbox-radio").
+* [Download the latest release](https://github.com/alexdonh/toggle-checkbox-radio/releases/download/1.0.2/toggle-checkbox-radio-1.0.2.zip "Download toggle-checkbox-radio").
 * Clone the repo: `git clone https://github.com/alexdonh/toggle-checkbox-radio.git`.
 * Install with [npm](https://www.npmjs.com): `npm install toggle-checkbox-radio`.
 
