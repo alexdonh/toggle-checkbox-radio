@@ -25,50 +25,28 @@ input[type=radio].toggle {
   input[type=radio].toggle:before,
   input[type=radio].toggle:after {
     box-sizing: border-box; }
-  input[type=checkbox].checkbox.animated, input[type=checkbox].radio.animated, input[type=checkbox].toggle.animated,
-  input[type=radio].checkbox.animated,
-  input[type=radio].radio.animated,
-  input[type=radio].toggle.animated {
-    transition: all .2s ease; }
-    input[type=checkbox].checkbox.animated:before, input[type=checkbox].checkbox.animated:after, input[type=checkbox].radio.animated:before, input[type=checkbox].radio.animated:after, input[type=checkbox].toggle.animated:before, input[type=checkbox].toggle.animated:after,
-    input[type=radio].checkbox.animated:before,
-    input[type=radio].checkbox.animated:after,
-    input[type=radio].radio.animated:before,
-    input[type=radio].radio.animated:after,
-    input[type=radio].toggle.animated:before,
-    input[type=radio].toggle.animated:after {
-      transition: all .3s ease; }
-  input[type=checkbox].checkbox:disabled, input[type=checkbox].radio:disabled, input[type=checkbox].toggle:disabled,
+  input[type=checkbox].checkbox.disabled, input[type=checkbox].checkbox:disabled, input[type=checkbox].radio.disabled, input[type=checkbox].radio:disabled, input[type=checkbox].toggle.disabled, input[type=checkbox].toggle:disabled,
+  input[type=radio].checkbox.disabled,
   input[type=radio].checkbox:disabled,
+  input[type=radio].radio.disabled,
   input[type=radio].radio:disabled,
+  input[type=radio].toggle.disabled,
   input[type=radio].toggle:disabled {
     cursor: not-allowed; }
-  input[type=checkbox].checkbox.rounded, input.radio.rounded[type=checkbox].checkbox:before, input[type=checkbox].radio.rounded, input.rounded[type=checkbox].radio:before, input[type=checkbox].toggle.rounded, input.radio.rounded[type=checkbox].toggle:before,
+  input[type=checkbox].checkbox.rounded, input[type=checkbox].radio.rounded, input[type=checkbox].toggle.rounded,
   input[type=radio].checkbox.rounded,
-  input.radio.rounded[type=radio].checkbox:before,
   input[type=radio].radio.rounded,
-  input.rounded[type=radio].radio:before,
-  input[type=radio].toggle.rounded,
-  input.radio.rounded[type=radio].toggle:before {
+  input[type=radio].toggle.rounded {
     border-radius: 0.25rem; }
-  input[type=checkbox].checkbox.circle, input.radio[type=checkbox].checkbox, input.radio[type=checkbox].checkbox:before, input[type=checkbox].radio.circle, input[type=checkbox].radio, input[type=checkbox].radio:before, input[type=checkbox].toggle.circle, input.radio[type=checkbox].toggle, input.radio[type=checkbox].toggle:before,
+  input[type=checkbox].checkbox.circle, input[type=checkbox].radio.circle, input[type=checkbox].toggle.circle,
   input[type=radio].checkbox.circle,
-  input.radio[type=radio].checkbox,
-  input.radio[type=radio].checkbox:before,
   input[type=radio].radio.circle,
-  input[type=radio].radio,
-  input[type=radio].radio:before,
-  input[type=radio].toggle.circle,
-  input.radio[type=radio].toggle,
-  input.radio[type=radio].toggle:before {
+  input[type=radio].toggle.circle {
     border-radius: 50%; }
-  input[type=checkbox].checkbox.square, input.radio.square[type=checkbox].checkbox:before, input[type=checkbox].radio.square, input.square[type=checkbox].radio:before, input[type=checkbox].toggle.square, input.radio.square[type=checkbox].toggle:before,
+  input[type=checkbox].checkbox.square, input[type=checkbox].radio.square, input[type=checkbox].toggle.square,
   input[type=radio].checkbox.square,
-  input.radio.square[type=radio].checkbox:before,
   input[type=radio].radio.square,
-  input.square[type=radio].radio:before,
-  input[type=radio].toggle.square,
-  input.radio.square[type=radio].toggle:before {
+  input[type=radio].toggle.square {
     border-radius: 0; }
 
 input[type=checkbox].checkbox, input[type=checkbox].radio,
@@ -76,23 +54,7 @@ input[type=radio].checkbox,
 input[type=radio].radio {
   width: 1rem;
   height: 1rem;
-  border: 2px transparent solid;
-  /*&:not(:checked) {
-      &.rounded {
-        border-radius: $border-radius-base;
-      }
-
-      &.circle {
-        border-radius: 50%;
-      }
-    }
-
-    &:checked {
-      height: $input-size-base / 2;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg) translate(12.5%, -12.5%);
-    }*/ }
+  border: 2px transparent solid; }
   input[type=checkbox].checkbox:active, input[type=checkbox].checkbox:focus, input[type=checkbox].radio:active, input[type=checkbox].radio:focus,
   input[type=radio].checkbox:active,
   input[type=radio].checkbox:focus,
@@ -106,13 +68,10 @@ input[type=radio].radio {
     position: absolute;
     visibility: hidden;
     opacity: 0; }
-  input[type=checkbox].checkbox:checked:before, input[type=checkbox].radio:checked:before,
+  input[type=checkbox].checkbox:checked:before, input[type=checkbox].checkbox.hover:hover:before, input[type=checkbox].radio:checked:before, input[type=checkbox].radio.hover:hover:before,
   input[type=radio].checkbox:checked:before,
-  input[type=radio].radio:checked:before {
-    opacity: 1;
-    visibility: visible; }
-  input[type=checkbox].checkbox.hover:hover:before, input[type=checkbox].radio.hover:hover:before,
   input[type=radio].checkbox.hover:hover:before,
+  input[type=radio].radio:checked:before,
   input[type=radio].radio.hover:hover:before {
     visibility: visible;
     opacity: 1; }
@@ -135,11 +94,6 @@ input[type=radio].checkbox.outline:before {
   top: 20%;
   height: 40%; }
 
-input[type=checkbox].checkbox.material:before,
-input[type=radio].checkbox.material:before {
-  content: initial;
-  content: unset; }
-
 input[type=checkbox].checkbox.material:checked,
 input[type=radio].checkbox.material:checked {
   height: 0.5rem;
@@ -149,24 +103,28 @@ input[type=radio].checkbox.material:checked {
           transform: rotate(-45deg) translate(12.5%, -12.5%);
   background-color: transparent; }
 
-input[type=checkbox].radio:before,
-input[type=radio].radio:before {
-  top: .125rem;
-  bottom: .125rem;
-  left: .125rem;
-  right: .125rem; }
-
-input[type=checkbox].radio.outline:before,
-input[type=radio].radio.outline:before {
-  top: .1875rem;
-  bottom: .1875rem;
-  left: .1875rem;
-  right: .1875rem; }
-
-input[type=checkbox].radio.material:before,
-input[type=radio].radio.material:before {
-  content: initial;
-  content: unset; }
+input[type=checkbox].radio,
+input[type=radio].radio {
+  border-radius: 50%; }
+  input[type=checkbox].radio:before,
+  input[type=radio].radio:before {
+    top: .125rem;
+    bottom: .125rem;
+    left: .125rem;
+    right: .125rem;
+    border-radius: 50%; }
+  input[type=checkbox].radio.rounded:before,
+  input[type=radio].radio.rounded:before {
+    border-radius: 0.25rem; }
+  input[type=checkbox].radio.square:before,
+  input[type=radio].radio.square:before {
+    border-radius: 0; }
+  input[type=checkbox].radio.outline:before,
+  input[type=radio].radio.outline:before {
+    top: .1875rem;
+    bottom: .1875rem;
+    left: .1875rem;
+    right: .1875rem; }
 
 input[type=checkbox].checkbox, input[type=checkbox].radio,
 input[type=radio].checkbox,

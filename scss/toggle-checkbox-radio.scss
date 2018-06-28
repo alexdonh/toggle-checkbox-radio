@@ -19,15 +19,7 @@ input[type=radio] {
       box-sizing: border-box;
     }
 
-    &.animated {
-      transition: all .2s ease;
-
-      &:before,
-      &:after {
-        transition: all .3s ease;
-      }
-    }
-
+    &.disabled,
     &:disabled {
       cursor: not-allowed;
     }
@@ -44,6 +36,7 @@ input[type=radio] {
       border-radius: 0;
     }
   }
+
   // checkbox & radio
   &.checkbox,
   &.radio {
@@ -55,22 +48,7 @@ input[type=radio] {
     &:focus {
       border-color: $input-focus-color;
     }
-    /*&:not(:checked) {
-      &.rounded {
-        border-radius: $border-radius-base;
-      }
 
-      &.circle {
-        border-radius: 50%;
-      }
-    }
-
-    &:checked {
-      height: $input-size-base / 2;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg) translate(12.5%, -12.5%);
-    }*/
     &:before {
       content: "";
       position: absolute;
@@ -78,13 +56,7 @@ input[type=radio] {
       opacity: 0;
     }
 
-    &:checked {
-      &:before {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
+    &:checked,
     &.hover:hover {
       &:before {
         visibility: visible;
@@ -111,39 +83,32 @@ input[type=radio] {
       height: 40%
     }
 
-    &.material {
-      &:before {
-        content: initial;
-        content: unset;
-      }
-
-      &:checked {
-        height: $input-size-base / 2;
-        border-top: none;
-        border-right: none;
-        transform: rotate(-45deg) translate(12.5%, -12.5%);
-        background-color: transparent;
-      }
+    &.material:checked {
+      height: $input-size-base / 2;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg) translate(12.5%, -12.5%);
+      background-color: transparent;
     }
   }
 
   &.radio {
-    @extend .circle;
+    border-radius: 50%;
 
     &:before {
       top: .125rem;
       bottom: .125rem;
       left: .125rem;
       right: .125rem;
-      @extend .circle;
+      border-radius: 50%;
     }
 
     &.rounded:before {
-      @extend .rounded;
+      border-radius: $input-border-radius-base;
     }
 
     &.square:before {
-      @extend .square;
+      border-radius: 0;
     }
 
     &.outline:before {
@@ -151,11 +116,6 @@ input[type=radio] {
       bottom: .1875rem;
       left: .1875rem;
       right: .1875rem;
-    }
-
-    &.material:before {
-      content: initial;
-      content: unset;
     }
   }
   // default color
