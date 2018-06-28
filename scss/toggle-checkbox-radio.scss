@@ -1,0 +1,211 @@
+@import "mixins";
+@import "variables";
+
+input[type=checkbox],
+input[type=radio] {
+  // common
+  &.checkbox,
+  &.radio,
+  &.toggle {
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    bottom: .1rem;
+    vertical-align: middle;
+
+    &:before,
+    &:after {
+      box-sizing: border-box;
+    }
+
+    &.animated {
+      transition: all .2s ease;
+
+      &:before,
+      &:after {
+        transition: all .3s ease;
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &.rounded {
+      border-radius: $input-border-radius-base;
+    }
+
+    &.circle {
+      border-radius: 50%;
+    }
+
+    &.square {
+      border-radius: 0;
+    }
+  }
+  // checkbox & radio
+  &.checkbox,
+  &.radio {
+    width: $input-size-base;
+    height: $input-size-base;
+    border: $input-border-width transparent solid;
+
+    &:active,
+    &:focus {
+      border-color: $input-focus-color;
+    }
+    /*&:not(:checked) {
+      &.rounded {
+        border-radius: $border-radius-base;
+      }
+
+      &.circle {
+        border-radius: 50%;
+      }
+    }
+
+    &:checked {
+      height: $input-size-base / 2;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg) translate(12.5%, -12.5%);
+    }*/
+    &:before {
+      content: "";
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:checked {
+      &:before {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.hover:hover {
+      &:before {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &.checkbox {
+    &:before {
+      left: 0;
+      right: 0;
+      top: 12.5%;
+      height: 50%;
+      border-left: $input-border-width transparent solid;
+      border-bottom: $input-border-width transparent solid;
+      transform: rotate(-45deg);
+    }
+
+    &.outline:before {
+      left: 2px;
+      right: 2px;
+      top: 20%;
+      height: 40%
+    }
+
+    &.material {
+      &:before {
+        content: initial;
+        content: unset;
+      }
+
+      &:checked {
+        height: $input-size-base / 2;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-45deg) translate(12.5%, -12.5%);
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.radio {
+    @extend .circle;
+
+    &:before {
+      top: .125rem;
+      bottom: .125rem;
+      left: .125rem;
+      right: .125rem;
+      @extend .circle;
+    }
+
+    &.rounded:before {
+      @extend .rounded;
+    }
+
+    &.square:before {
+      @extend .square;
+    }
+
+    &.outline:before {
+      top: .1875rem;
+      bottom: .1875rem;
+      left: .1875rem;
+      right: .1875rem;
+    }
+
+    &.material:before {
+      content: initial;
+      content: unset;
+    }
+  }
+  // default color
+  &.checkbox,
+  &.radio {
+
+    &.hover:hover:not(:checked) {
+      &:before {
+        border-color: $gray-200;
+      }
+    }
+
+    border-color: $gray-300;
+
+    &:before {
+      border-color: $white;
+    }
+
+    &:checked {
+      border-color: $primary;
+      background-color: $primary;
+    }
+
+    &.outline {
+      &:before {
+        border-color: $primary;
+      }
+
+      &:checked {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.radio {
+
+    &.hover:hover:not(:checked) {
+      &:before {
+        background-color: $gray-200;
+      }
+    }
+
+    &:before {
+      background-color: $white;
+    }
+
+    &.outline {
+      &:checked:before {
+        background-color: $primary;
+      }
+    }
+  }
+}

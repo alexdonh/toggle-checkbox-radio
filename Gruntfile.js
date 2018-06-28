@@ -20,29 +20,31 @@ module.exports = function (grunt) {
         // Task configuration.
 
         clean: {
-            css: 'dist',
+            default: 'dist',
             docs: 'docs/assets'
         },
 
-        less: {
-            options: {
-                strictMath: true,
-                sourceMap: true,
-                outputSourceFiles: true,
-                sourceMapURL: '<%= pkg.name %>.css.map',
-                sourceMapFilename: '<%= less.css.dest %>.map'
-            },
-            css: {
-                src: 'less/toggle-checkbox-radio.less',
-                dest: 'dist/<%= pkg.name %>.css'
+        sass: {
+            default: {
+                options: {
+                    sourceMap: true,
+                },
+                files: [{
+                    src: 'scss/toggle-checkbox-radio.scss',
+                    dest: 'dist/<%= pkg.name %>.css'
+                }]
             }
         },
 
         usebanner: {
-            options: {
-                banner: '<%= banner %>'
-            },
-            src: '<%= less.css.dest %>'
+            default: {
+                options: {
+                    banner: '<%= banner %>'
+                },
+                files: [{
+                    src: 'dist/<%= pkg.name %>.css'
+                }]
+            }
         },
 
         copy: {
@@ -57,76 +59,86 @@ module.exports = function (grunt) {
         },
 
         cssmin: {
-            options: {
-                compatibility: 'ie8'
-            },
-            css: {
-                src: '<%= less.css.dest %>',
-                dest: 'dist/<%= pkg.name %>.min.css'
+            default: {
+                options: {
+                    sourceMap: true,
+                    compatibility: 'ie8',
+                    rebase: false
+                },
+                files: [{
+                    src: 'dist/<%= pkg.name %>.css',
+                    dest: 'dist/<%= pkg.name %>.min.css'
+                }]
             }
         },
 
         csslint: {
-            options: {
-                'adjoining-classes': false,
-                'box-sizing': false,
-                'box-model': false,
-                'compatible-vendor-prefixes': false,
-                'floats': false,
-                'font-sizes': false,
-                'gradients': false,
-                'important': false,
-                'known-properties': false,
-                'outline-none': false,
-                'qualified-headings': false,
-                'regex-selectors': false,
-                'shorthand': false,
-                'text-indent': false,
-                'unique-headings': false,
-                'universal-selector': false,
-                'unqualified-attributes': false,
-                'overqualified-elements': false
-            },
-            css: {
-                src: '<%= less.css.dest %>'
+            default: {
+                options: {
+                    'adjoining-classes': false,
+                    'box-sizing': false,
+                    'box-model': false,
+                    'compatible-vendor-prefixes': false,
+                    'floats': false,
+                    'font-sizes': false,
+                    'gradients': false,
+                    'important': false,
+                    'known-properties': false,
+                    'outline-none': false,
+                    'qualified-headings': false,
+                    'regex-selectors': false,
+                    'shorthand': false,
+                    'text-indent': false,
+                    'unique-headings': false,
+                    'universal-selector': false,
+                    'unqualified-attributes': false,
+                    'overqualified-elements': false
+                },
+                files: [{
+                    src: 'dist/<%= pkg.name %>.css'
+                }]
             }
         },
 
-        autoprefixer: {
-            options: {
-                browsers: [
-                    //
-                    // Official browser support policy:
-                    // https://v4-alpha.getbootstrap.com/getting-started/browsers-devices/#supported-browsers
-                    //
-                    'Chrome >= 45', // Exact version number here is kinda arbitrary
-                    'Firefox ESR',
-                    // Note: Edge versions in Autoprefixer & Can I Use refer to the EdgeHTML rendering engine version,
-                    // NOT the Edge app version shown in Edge's "About" screen.
-                    // For example, at the time of writing, Edge 20 on an up-to-date system uses EdgeHTML 12.
-                    // See also https://github.com/Fyrd/caniuse/issues/1928
-                    'Edge >= 12',
-                    'Explorer >= 10',
-                    // Out of leniency, we prefix these 1 version further back than the official policy.
-                    'iOS >= 9',
-                    'Safari >= 9',
-                    // The following remain NOT officially supported, but we're lenient and include their prefixes to avoid severely breaking in them.
-                    'Android >= 4.4',
-                    'Opera >= 30'
-                ]
-            },
-            css: {
+        postcss: {
+            default: {
                 options: {
-                    map: true
+                    map: true,
+                    processors: [
+                        require('autoprefixer')({
+                            browsers: [
+                                //
+                                // Official browser support policy:
+                                // https://v4-alpha.getbootstrap.com/getting-started/browsers-devices/#supported-browsers
+                                //
+                                'Chrome >= 45', // Exact version number here is kinda arbitrary
+                                'Firefox ESR',
+                                // Note: Edge versions in Autoprefixer & Can I Use refer to the EdgeHTML rendering engine version,
+                                // NOT the Edge app version shown in Edge's "About" screen.
+                                // For example, at the time of writing, Edge 20 on an up-to-date system uses EdgeHTML 12.
+                                // See also https://github.com/Fyrd/caniuse/issues/1928
+                                'Edge >= 12',
+                                'Explorer >= 10',
+                                // Out of leniency, we prefix these 1 version further back than the official policy.
+                                'iOS >= 9',
+                                'Safari >= 9',
+                                // The following remain NOT officially supported, but we're lenient and include their prefixes to avoid severely breaking in them.
+                                'Android >= 4.4',
+                                'Opera >= 30'
+                            ]
+                        }),
+                    ]
                 },
-                src: '<%= less.css.dest %>'
+                files: [{
+                    src: 'dist/<%= pkg.name %>.css'
+                }]
             }
         },
 
         compress: {
-            zip: {
+            default: {
                 options: {
-                    archive: 'toggle-checkbox-radio-<%= pkg.version %>.zip',
+                    archive: '<%= pkg.name %>-<%= pkg.version %>.zip',
                     mode: 'zip'
                 },
                 files: [
@@ -134,10 +146,10 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'dist/',
                         src: '**',
-                        dest: 'toggle-checkbox-radio-<%= pkg.version %>/'
+                        dest: '<%= pkg.name %>-<%= pkg.version %>/'
                     }, {
                         src: ['LICENSE'],
-                        dest: 'toggle-checkbox-radio-<%= pkg.version %>/'
+                        dest: '<%= pkg.name %>-<%= pkg.version %>/'
                     }
                 ]
             }
@@ -147,8 +159,8 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: 'Gruntfile.js'
             },
-            less: {
-                files: 'less/*.less',
+            sass: {
+                files: 'scss/*.scss',
                 tasks: 'build'
             }
         }
@@ -163,7 +175,7 @@ module.exports = function (grunt) {
     // to update version number, use grunt version::x.y.z
 
     // CSS distribution
-    grunt.registerTask('build', ['clean:css', 'less', 'autoprefixer', 'usebanner', 'cssmin']);
+    grunt.registerTask('build', ['clean:default', 'sass', 'postcss', 'usebanner', 'cssmin']);
 
     // Copy dist to docs
     grunt.registerTask('docs', ['build', 'clean:docs', 'copy:docs']);
