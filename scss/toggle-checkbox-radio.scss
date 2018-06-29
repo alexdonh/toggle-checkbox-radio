@@ -1,171 +1,398 @@
-@import "mixins";
 @import "variables";
+@import "mixins";
 
-input[type=checkbox],
-input[type=radio] {
-  // common
-  &.checkbox,
-  &.radio,
-  &.toggle {
-    appearance: none;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    bottom: .1rem;
-    vertical-align: middle;
+// Toggle
 
-    &:before,
-    &:after {
-      box-sizing: border-box;
-    }
+@if $enable-toggle {
+  input[type=checkbox],
+  input[type=radio] {
+    &.toggle {
+      appearance: none;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      bottom: .1rem;
+      vertical-align: middle;
 
-    &.disabled,
-    &:disabled {
-      cursor: not-allowed;
-    }
-
-    &.rounded {
-      border-radius: $input-border-radius-base;
-    }
-
-    &.circle {
-      border-radius: 50%;
-    }
-
-    &.square {
-      border-radius: 0;
-    }
-  }
-
-  // checkbox & radio
-  &.checkbox,
-  &.radio {
-    width: $input-size-base;
-    height: $input-size-base;
-    border: $input-border-width transparent solid;
-
-    &:active,
-    &:focus {
-      border-color: $input-focus-color;
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    &:checked,
-    &.hover:hover {
-      &:before {
-        visibility: visible;
-        opacity: 1;
+      &:before,
+      &:after {
+        box-sizing: border-box;
       }
-    }
-  }
 
-  &.checkbox {
-    &:before {
-      left: 0;
-      right: 0;
-      top: 12.5%;
-      height: 50%;
-      border-left: $input-border-width transparent solid;
-      border-bottom: $input-border-width transparent solid;
-      transform: rotate(-45deg);
-    }
-
-    &.outline:before {
-      left: 2px;
-      right: 2px;
-      top: 20%;
-      height: 40%
-    }
-
-    &.material:checked {
-      height: $input-size-base / 2;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg) translate(12.5%, -12.5%);
-      background-color: transparent;
-    }
-  }
-
-  &.radio {
-    border-radius: 50%;
-
-    &:before {
-      top: .125rem;
-      bottom: .125rem;
-      left: .125rem;
-      right: .125rem;
-      border-radius: 50%;
-    }
-
-    &.rounded:before {
-      border-radius: $input-border-radius-base;
-    }
-
-    &.square:before {
-      border-radius: 0;
-    }
-
-    &.outline:before {
-      top: .1875rem;
-      bottom: .1875rem;
-      left: .1875rem;
-      right: .1875rem;
-    }
-  }
-  // default color
-  &.checkbox,
-  &.radio {
-
-    &.hover:hover:not(:checked) {
-      &:before {
-        border-color: $gray-200;
+      &.disabled,
+      &:disabled {
+        cursor: not-allowed;
       }
-    }
 
-    border-color: $gray-300;
+      $toggle-width: $input-size-base * 2.25;
 
-    &:before {
-      border-color: $white;
-    }
+      width: $toggle-width;
+      height: $input-size-base;
+      border: $input-border-width $input-border-color solid;
+      border-radius: $input-size-base;
 
-    &:checked {
-      border-color: $primary;
-      background-color: $primary;
-    }
+      &.is-square {
+        border-radius: 0;
 
-    &.outline {
+        &:before {
+          border-radius: 0;
+        }
+      }
+
       &:before {
-        border-color: $primary;
+        content: "";
+        position: absolute;
+        width: $input-size-base - rem-calc($input-border-width * 2);
+        height: $input-size-base - rem-calc($input-border-width * 2);
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        box-shadow: 1px 1px 4px -1px rgba(0,0,0,0.75);
       }
 
       &:checked {
-        background-color: transparent;
+        &:before {
+          left: $toggle-width - $input-size-base;
+        }
+      }
+
+      &.is-outline {
+        &:before {
+          width: $input-size-base - rem-calc($input-border-width * 2) - .25rem;
+          height: $input-size-base - rem-calc($input-border-width * 2) - .25rem;
+          top: .125rem;
+          left: .25rem;
+        }
+
+        &:checked {
+          &:before {
+            left: $toggle-width - $input-size-base;
+          }
+        }
+      }
+
+      &.is-material {
+        margin: .25em .125rem;
+
+        &:before {
+          width: $input-size-base + .25rem;
+          height: $input-size-base + .25rem;
+          top: -.25rem;
+          left: -.25rem;
+        }
+
+        &:checked {
+          &:before {
+            left: $toggle-width - $input-size-base - .25rem;
+          }
+        }
+      }
+
+      &.has-animation {
+        transition: background-color .3s ease;
+
+        &:before {
+          transition: left .3s ease, background-color .3s ease;
+        }
+      }
+      // colors
+      // default color
+      @include toggle-color-variant($gray-700);
+
+      @each $color, $value in $theme-colors {
+        &.color-#{$color} {
+          @include toggle-color-variant($value);
+        }
+      }
+      // sizes
+      &.is-small {
+        @include toggle-size($input-size-sm);
+      }
+
+      &.is-large {
+        @include toggle-size($input-size-lg);
       }
     }
   }
+}
 
-  &.radio {
+// Checkbox
 
-    &.hover:hover:not(:checked) {
+@if $enable-checkbox {
+  input[type=checkbox],
+  input[type=radio] {
+    &.checkbox {
+      appearance: none;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      bottom: .1rem;
+      vertical-align: middle;
+
+      &:before,
+      &:after {
+        box-sizing: border-box;
+      }
+
+      &.disabled,
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      width: $input-size-base;
+      height: $input-size-base;
+      border: $input-border-width $input-border-color solid;
+
+      &:active,
+      &:focus {
+        border-color: $input-focus-color;
+      }
+
       &:before {
-        background-color: $gray-200;
+        content: "";
+        position: absolute;
+        visibility: hidden;
+        left: 0;
+        right: 0;
+        top: 12.5%;
+        height: 50%;
+        border-left: $input-border-width transparent solid;
+        border-bottom: $input-border-width transparent solid;
+        transform: rotate(-45deg);
+      }
+
+      &:checked,
+      &.is-hoverable:hover {
+        &:before {
+          visibility: visible;
+        }
+      }
+
+      &.is-outline {
+        &:before {
+          left: 2px;
+          right: 2px;
+          top: 20%;
+          height: 40%
+        }
+
+        &:checked {
+          background-color: transparent !important;
+        }
+      }
+
+      &.is-material {
+        &:before {
+          content: initial;
+          content: unset;
+        }
+      }
+
+      &.is-rounded {
+        border-radius: $input-border-radius-base;
+      }
+
+      &.is-circle {
+        border-radius: 50%;
+      }
+
+      &.is-square {
+        border-radius: 0;
+      }
+
+      &.is-material {
+        &:checked {
+          height: $input-size-base / 2;
+          border-top: none;
+          border-right: none;
+          transform: rotate(-45deg) translate(12.5%, -12.5%);
+          background-color: transparent !important;
+        }
+      }
+
+      &.has-animation {
+        &:before {
+          opacity: 0;
+          transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -165deg);
+          transition: transform .3s ease, opacity .2s ease;
+        }
+
+        &:checked {
+          &:before {
+            opacity: 1;
+            transform: rotate(-45deg) translate3d(0, 0, 0);
+          }
+        }
+
+        &.is-material {
+          opacity: 1;
+          transition: transform .3s ease, height .2s ease;
+        }
+      }
+      // colors
+      // default color
+      @include checkbox-color-variant($gray-700);
+
+      @each $color, $value in $theme-colors {
+        &.color-#{$color} {
+          @include checkbox-color-variant($value);
+        }
+      }
+      // sizes
+      &.is-small {
+        @include checkbox-size($input-size-sm);
+      }
+
+      &.is-large {
+        @include checkbox-size($input-size-lg);
       }
     }
+  }
+}
 
-    &:before {
-      background-color: $white;
-    }
+// Radio
 
-    &.outline {
-      &:checked:before {
-        background-color: $primary;
+@if $enable-radio {
+  input[type=checkbox],
+  input[type=radio] {
+    &.radio {
+      appearance: none;
+      cursor: pointer;
+      outline: none;
+      position: relative;
+      bottom: .1rem;
+      vertical-align: middle;
+
+      &:before,
+      &:after {
+        box-sizing: border-box;
+      }
+
+      &.disabled,
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      width: $input-size-base;
+      height: $input-size-base;
+      border: $input-border-width $input-border-color solid;
+      border-radius: 50%;
+
+      &:active,
+      &:focus {
+        border-color: $input-focus-color;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        visibility: hidden;
+        top: .125rem;
+        bottom: .125rem;
+        left: .125rem;
+        right: .125rem;
+        border-radius: 50%;
+      }
+
+      &:checked,
+      &.is-hoverable:hover {
+        &:before {
+          visibility: visible;
+        }
+      }
+
+      &.is-outline {
+        &:checked {
+          background-color: transparent !important;
+        }
+
+        &:before {
+          top: .1875rem;
+          bottom: .1875rem;
+          left: .1875rem;
+          right: .1875rem;
+        }
+      }
+
+      &.is-material {
+        &:before {
+          content: initial;
+          content: unset;
+        }
+      }
+
+      &.is-rounded {
+        border-radius: $input-border-radius-base;
+
+        &:before {
+          border-radius: $input-border-radius-base;
+        }
+      }
+
+      &.is-circle {
+        border-radius: 50%;
+
+        &:before {
+          border-radius: 50%;
+        }
+      }
+
+      &.is-square {
+        border-radius: 0;
+
+        &:before {
+          border-radius: 0;
+        }
+      }
+
+      &.has-animation {
+        &:before {
+          opacity: 0;
+          transform: scale3d(0.3, 0.3, 0.3);
+          transition: transform .3s ease, opacity .2s ease;
+        }
+
+        &:checked {
+          &:before {
+            opacity: 1;
+            transform: scale3d(1, 1, 1);
+          }
+        }
+
+        &.is-material {
+          &:checked {
+            animation: radio-zoom-in .3s both;
+          }
+        }
+      }
+      // colors
+      // default color
+      @include radio-color-variant($gray-700);
+
+      @each $color, $value in $theme-colors {
+        &.color-#{$color} {
+          @include radio-color-variant($value);
+        }
+      }
+      // sizes
+      &.is-small {
+        @include radio-size($input-size-sm);
+      }
+
+      &.is-large {
+        @include radio-size($input-size-lg);
       }
     }
+  }
+}
+
+@keyframes radio-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
   }
 }

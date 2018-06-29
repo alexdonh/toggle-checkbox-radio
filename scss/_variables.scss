@@ -30,7 +30,7 @@ $success:      $green !default;
 $info:         $cyan !default;
 $warning:      $yellow !default;
 $danger:       $red !default;
-$light:        $gray-100 !default;
+$light:        $gray-200 !default;
 $dark:         $gray-800 !default;
 
 $theme-colors: () !default;
@@ -47,6 +47,12 @@ $theme-colors: map-merge((
 
 $line-height-base:   1.5 !default;
 
+// Options
+
+$enable-toggle:   true !default;
+$enable-checkbox: true !default;
+$enable-radio:    true !default;
+
 // Inputs
 
 $input-size-base:    1rem !default; // Assumes the browser default, typically `16px`
@@ -56,7 +62,7 @@ $input-size-sm:      ($input-size-base * .875) !default;
 $input-focus-color:  rgba($primary, .25) !default;
 
 $input-border-radius-base: .25rem !default;
-$input-border-radius-lg: .3rem !default;
-$input-border-radius-sm: .2rem !default;
-
-$input-border-width: 2px !default;
+$input-border-radius-lg:   .3rem !default;
+$input-border-radius-sm:   .2rem !default;
+$input-border-color:       $gray-400 !default;
+$input-border-width:       2px !default;

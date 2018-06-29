@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CSS only, bootstrap compatible toggle, checkbox and radio buttons.</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-    <link href="../dist/toggle-checkbox-radio.min.css" rel="stylesheet" />
+    <link href="assets/toggle-checkbox-radio.min.css" rel="stylesheet" />
     <style>
         body {padding-top: 2rem; display: flex; min-height: 100vh; flex-direction: column;}
         body > .container {flex: 1;}
-        body > footer {padding: 2rem 0;}
+        body > footer {margin-top: 2rem; padding: 2rem 0; border-top:1px rgba(0,0,0,.1) solid;}
         pre {padding: 0; margin: 0 0 15px; background: none; border: none;}
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,356 +24,517 @@
     <div class="container">
 
         <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <h1 class="display-4">toggle-checkbox-radio</h1>
+            <p class="lead">CSS only, bootstrap compatible toggle, checkbox and radio buttons.</p>
             <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <p>
+                <a class="github-button" href="https://github.com/alexdonh/toggle-checkbox-radio/releases/download/2.0.0/toggle-checkbox-radio-2.0.0.zip" data-icon="octicon-cloud-download" data-size="large" aria-label="Download alexdonh/toggle-checkbox-radio on GitHub">Download</a>
+                <a class="github-button" href="https://github.com/alexdonh/toggle-checkbox-radio" data-size="large" data-show-count="true" aria-label="Star alexdonh/toggle-checkbox-radio on GitHub">Github</a>
+            </p>
         </div>
-
+        <h2 class="font-weight-light my-4">Why?</h2>
+        <p>There are like thousands of these kind of libraries out there. Why another?</p>
+        <p>Well... why not?</p>
+        <p>I have used quite a few different libraries already but I find none of them really fits. Some requires Javascript to work. Some doesn't support all controls I need. Some requires additional tags like <code>label</code>, <code>i</code> or <code>span</code> either nested or next to the inputs. Some just doesn't look nice at all.</p>
+        <p>So I decided to make my own: Pure CSS, no nonsense additional tags and looks nice (to me)!</p>
+        <p>I know without additional tags it may not work on some (legacy, outdated) browsers. But hey, who cares? Go back to earth and update your browsers!</p>
+        <h2 class="font-weight-light my-4">Usage</h2>
+        <ol>
+            <li>
+                <p>Include <code>toggle-checkbox-radio.css</code> or <code>toggle-checkbox-radio.min.css</code> to your page:</p>
+                <p>
+                    <pre><code class="html">&lt;head&gt;
+...
+&lt;link href=&quot;path/to/toggle-checkbox-radio.css&quot; rel=&quot;stylesheet&quot; /&gt;
+...
+&lt;/head&gt;
+</code></pre>
+                </p>
+            </li>
+            <li>
+                <p>Add <code>toggle</code>, <code>checkbox</code> or <code>radio</code> to your checkbox or radio input. View this page source for all available options.</p>
+            </li>
+        </ol>
+        <h2 class="font-weight-light my-4">Examples</h2>
         <form>
-            <p class="lead">Default</p>
+            <h3 class="lead my-3">Default</h3>
             <div class="form-row">
                 <div class="col">
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox primary" /> Primary</label>
+                        <label><input type="checkbox" class="checkbox color-primary" checked /> Primary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox secondary" /> Secondary</label>
+                        <label><input type="checkbox" class="checkbox color-secondary" checked /> Secondary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox info" /> Info</label>
+                        <label><input type="checkbox" class="checkbox color-info" /> Info</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox warning" /> Warning</label>
+                        <label><input type="checkbox" class="checkbox color-warning" /> Warning</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox danger" /> Danger</label>
+                        <label><input type="checkbox" class="checkbox color-danger" checked /> Danger</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox light" /> Light</label>
+                        <label><input type="checkbox" class="checkbox color-light" checked /> Light</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox dark" /> Dark</label>
+                        <label><input type="checkbox" class="checkbox color-dark" /> Dark</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox dark" disabled checked /> Primary checked disabled</label>
+                        <label><input type="checkbox" class="checkbox color-primary" disabled checked /> Primary checked disabled</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox primary" disabled /> Secondary disabled</label>
+                        <label><input type="checkbox" class="checkbox color-secondary" disabled /> Secondary disabled</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio primary" /> Primary</label>
+                        <label><input name="radio1" type="radio" class="radio color-primary" /> Primary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio secondary" /> Secondary</label>
+                        <label><input name="radio1" type="radio" class="radio color-secondary" /> Secondary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio info" /> Info</label>
+                        <label><input name="radio1" type="radio" class="radio color-info" /> Info</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio warning" /> Warning</label>
+                        <label><input name="radio1" type="radio" class="radio color-warning" /> Warning</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio danger" /> Danger</label>
+                        <label><input name="radio1" type="radio" class="radio color-danger" /> Danger</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio light" /> Light</label>
+                        <label><input name="radio1" type="radio" class="radio color-light" /> Light</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio dark" /> Dark</label>
+                        <label><input name="radio1" type="radio" class="radio color-dark" /> Dark</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio dark" disabled checked /> Primary checked disabled</label>
+                        <label><input name="radio1" type="radio" class="radio color-info" disabled checked /> Info checked disabled</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio1" type="radio" class="radio primary" disabled /> Secondary disabled</label>
+                        <label><input name="radio1" type="radio" class="radio color-secondary" disabled /> Secondary disabled</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle primary" /> Primary</label>
+                        <label><input type="checkbox" class="toggle color-primary" /> Primary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle secondary" /> Secondary</label>
+                        <label><input type="checkbox" class="toggle color-secondary" /> Secondary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle info" /> Info</label>
+                        <label><input type="checkbox" class="toggle color-info" checked /> Info</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle warning" /> Warning</label>
+                        <label><input type="checkbox" class="toggle color-warning" checked /> Warning</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio2" type="radio" class="toggle danger" /> Danger</label>
+                        <label><input name="radio2" type="radio" class="toggle color-danger" /> Danger</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio2" type="radio" class="toggle light" /> Light</label>
+                        <label><input name="radio2" type="radio" class="toggle color-light" /> Light</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio2" type="radio" class="toggle dark" /> Dark</label>
+                        <label><input name="radio2" type="radio" class="toggle color-dark" /> Dark</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio2" type="radio" class="toggle dark" disabled checked /> Primary checked disabled</label>
+                        <label><input name="radio2" type="radio" class="toggle color-warning" disabled checked /> Warning checked disabled</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio2" type="radio" class="toggle primary" disabled /> Secondary disabled</label>
+                        <label><input name="radio2" type="radio" class="toggle color-secondary" disabled /> Secondary disabled</label>
                     </div>
                 </div>
             </div>
             <hr />
-            <p class="lead">Inline</p>
+            <h3 class="lead my-3">Inline</h3>
             <div class="form-group">
-                <label class="mr-1"><input type="checkbox" class="checkbox primary" /> Primary</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox secondary" /> Secondary</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox info" /> Info</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox warning" /> Warning</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox danger" /> Danger</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox light" /> Light</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox dark" /> Dark</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox primary" disabled checked /> Primary checked disabled</label>
-                <label class="mr-1"><input type="checkbox" class="checkbox secondary" disabled /> Secondary disabled</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-primary" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-secondary" checked /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-info" /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-warning" /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-danger" checked /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-light" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-dark" /> Dark</label>
             </div>
             <div class="form-group">
-                <label class="mr-1"><input name="radio3" type="radio" class="radio primary" /> Primary</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio secondary" /> Secondary</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio info" /> Info</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio warning" /> Warning</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio danger" /> Danger</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio light" /> Light</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio dark" /> Dark</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio light" disabled checked /> Primary disabled</label>
-                <label class="mr-1"><input name="radio3" type="radio" class="radio dark" disabled /> Secondary disabled</label>
+                <label class="mr-1"><input name="radio3" type="radio" class="radio color-primary" /> Primary</label>
+                <label class="mr-1"><input name="radio3" type="radio" class="radio color-secondary" /> Secondary</label>
+                <label class="mr-1"><input name="radio3" type="radio" class="radio color-info" /> Info</label>
+                <label class="mr-1"><input name="radio3" type="radio" class="radio color-warning" /> Warning</label>
+                <label class="mr-1"><input name="radio3" type="radio" class="radio color-danger" /> Danger</label>
+                <label class="mr-1"><input name="radio3" type="radio" class="radio color-light" /> Light</label>
+                <label class="mr-1"><input name="radio3" type="radio" class="radio color-dark" /> Dark</label>
             </div>
             <div class="form-group">
-                <label class="mr-1"><input type="checkbox" class="toggle primary" /> Primary</label>
-                <label class="mr-1"><input type="checkbox" class="toggle secondary" /> Secondary</label>
-                <label class="mr-1"><input type="checkbox" class="toggle info" /> Info</label>
-                <label class="mr-1"><input type="checkbox" class="toggle warning" /> Warning</label>
-                <label class="mr-1"><input name="radio4" type="radio" class="toggle danger" /> Danger</label>
-                <label class="mr-1"><input name="radio4" type="radio" class="toggle light" /> Light</label>
-                <label class="mr-1"><input name="radio4" type="radio" class="toggle dark" /> Dark</label>
-                <label class="mr-1"><input name="radio4" type="radio" class="toggle light" disabled checked /> Primary disabled</label>
-                <label class="mr-1"><input name="radio4" type="radio" class="toggle dark" disabled /> Secondary disabled</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-primary" /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-secondary" /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-info" checked /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-warning" checked /> Warning</label>
+                <label class="mr-1"><input name="radio4" type="radio" class="toggle color-danger" /> Danger</label>
+                <label class="mr-1"><input name="radio4" type="radio" class="toggle color-light" /> Light</label>
+                <label class="mr-1"><input name="radio4" type="radio" class="toggle color-dark" /> Dark</label>
             </div>
             <hr />
-            <p class="lead">No labels (not even label tags)</p>
+            <h3 class="lead my-3">No label (not even label tag)</h3>
             <div class="form-group">
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox primary" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox secondary" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox info" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox warning" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox danger" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox light" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox dark" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox primary" disabled checked /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="checkbox secondary" disabled /></div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-primary" checked /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-secondary" checked /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-info" /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-warning" /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-danger" checked /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-light" /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-dark" /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-primary" disabled checked /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="checkbox color-secondary" disabled /></div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group mb-0"><input type="checkbox" class="toggle color-primary" /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="toggle color-secondary" /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="toggle color-info" checked /></div>
+                        <div class="form-group mb-0"><input type="checkbox" class="toggle color-warning" checked /></div>
+                        <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle color-danger" /></div>
+                        <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle color-light" /></div>
+                        <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle color-dark" /></div>
+                        <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle color-primary" disabled checked /></div>
+                        <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle color-secondary" disabled /></div>
+                    </div>
+                </div>
             </div>
+            <h3 class="lead my-3">No label inline</h3>
             <div class="form-group">
-                <input name="radio5" type="radio" class="radio primary mr-1" />
-                <input name="radio5" type="radio" class="radio secondary mr-1" />
-                <input name="radio5" type="radio" class="radio info mr-1" />
-                <input name="radio5" type="radio" class="radio warning mr-1" />
-                <input name="radio5" type="radio" class="radio danger mr-1" />
-                <input name="radio5" type="radio" class="radio light mr-1" />
-                <input name="radio5" type="radio" class="radio dark mr-1" />
-                <input name="radio5" type="radio" class="radio primary mr-1" disabled checked />
-                <input name="radio5" type="radio" class="radio secondary mr-1" disabled />
-            </div>
-            <div class="form-group">
-                <div class="form-group mb-0"><input type="checkbox" class="toggle primary" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="toggle secondary" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="toggle info" /></div>
-                <div class="form-group mb-0"><input type="checkbox" class="toggle warning" /></div>
-                <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle danger" /></div>
-                <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle light" /></div>
-                <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle dark" /></div>
-                <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle primary" disabled checked /></div>
-                <div class="form-group mb-0"><input name="radio6" type="radio" class="toggle secondary" disabled /></div>
+                <input name="radio5" type="radio" class="radio color-primary mr-1" />
+                <input name="radio5" type="radio" class="radio color-secondary mr-1" />
+                <input name="radio5" type="radio" class="radio color-info mr-1" />
+                <input name="radio5" type="radio" class="radio color-warning mr-1" />
+                <input name="radio5" type="radio" class="radio color-danger mr-1" />
+                <input name="radio5" type="radio" class="radio color-light mr-1" />
+                <input name="radio5" type="radio" class="radio color-dark mr-1" />
+                <input name="radio5" type="radio" class="radio color-primary mr-1" disabled checked />
+                <input name="radio5" type="radio" class="radio color-secondary mr-1" disabled />
             </div>
             <hr />
-            <p class="lead">Outline</p>
+            <h3 class="lead my-3">Outline</h3>
+            <div class="form-group">
+                <label class="mr-1"><input type="checkbox" class="checkbox color-primary is-outline" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-secondary is-outline" checked /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-info is-outline" /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-warning is-outline" /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-danger is-outline" checked /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-light is-outline" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-dark is-outline" /> Dark</label>
+            </div>
             <div class="form-row">
                 <div class="col">
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox primary outline" /> Primary</label>
+                        <label><input name="radio7" type="radio" class="radio color-primary is-outline" /> Primary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox secondary outline" /> Secondary</label>
+                        <label><input name="radio7" type="radio" class="radio color-secondary is-outline" /> Secondary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox info outline" /> Info</label>
+                        <label><input name="radio7" type="radio" class="radio color-info is-outline" /> Info</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox warning outline" /> Warning</label>
+                        <label><input name="radio7" type="radio" class="radio color-warning is-outline" /> Warning</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox danger outline" /> Danger</label>
+                        <label><input name="radio7" type="radio" class="radio color-danger is-outline" /> Danger</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox light outline" /> Light</label>
+                        <label><input name="radio7" type="radio" class="radio color-light is-outline" /> Light</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox dark outline" /> Dark</label>
+                        <label><input name="radio7" type="radio" class="radio color-dark is-outline" /> Dark</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox dark outline" disabled checked /> Primary checked disabled</label>
+                        <label><input name="radio7" type="radio" class="radio color-dark is-outline" disabled checked /> Primary checked disabled</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox primary outline" disabled /> Secondary disabled</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio primary outline" /> Primary</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio secondary outline" /> Secondary</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio info outline" /> Info</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio warning outline" /> Warning</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio danger outline" /> Danger</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio light outline" /> Light</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio dark outline" /> Dark</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio dark outline" disabled checked /> Primary checked disabled</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio7" type="radio" class="radio primary outline" disabled /> Secondary disabled</label>
+                        <label><input name="radio7" type="radio" class="radio color-primary is-outline" disabled /> Secondary disabled</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle primary outline" /> Primary</label>
+                        <label><input type="checkbox" class="toggle color-primary is-outline" /> Primary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle secondary outline" /> Secondary</label>
+                        <label><input type="checkbox" class="toggle color-secondary is-outline" /> Secondary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle info outline" /> Info</label>
+                        <label><input type="checkbox" class="toggle color-info is-outline" checked /> Info</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle warning outline" /> Warning</label>
+                        <label><input type="checkbox" class="toggle color-warning is-outline" checked /> Warning</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio8" type="radio" class="toggle danger outline" /> Danger</label>
+                        <label><input name="radio8" type="radio" class="toggle color-danger is-outline" /> Danger</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio8" type="radio" class="toggle light outline" /> Light</label>
+                        <label><input name="radio8" type="radio" class="toggle color-light is-outline" /> Light</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio8" type="radio" class="toggle dark outline" /> Dark</label>
+                        <label><input name="radio8" type="radio" class="toggle color-dark is-outline" /> Dark</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio8" type="radio" class="toggle dark outline" disabled checked /> Primary checked disabled</label>
+                        <label><input name="radio8" type="radio" class="toggle color-dark is-outline" disabled checked /> Primary checked disabled</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio8" type="radio" class="toggle primary outline" disabled /> Secondary disabled</label>
+                        <label><input name="radio8" type="radio" class="toggle color-primary is-outline" disabled /> Secondary disabled</label>
                     </div>
                 </div>
             </div>
             <hr />
-            <p class="lead">Material</p>
+            <h3 class="lead my-3">Material</h3>
+            <div class="form-group">
+                <label class="mr-1"><input type="checkbox" class="checkbox color-primary is-material" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-secondary is-material" checked /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-info is-material" /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-warning is-material" /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-danger is-material" checked /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-light is-material" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-dark is-material" /> Dark</label>
+            </div>
             <div class="form-row">
                 <div class="col">
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox primary material animated" /> Primary</label>
+                        <label><input name="radio9" type="radio" class="radio color-primary is-material" /> Primary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox secondary material animated" /> Secondary</label>
+                        <label><input name="radio9" type="radio" class="radio color-secondary is-material" /> Secondary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox info material animated" /> Info</label>
+                        <label><input name="radio9" type="radio" class="radio color-info is-material" /> Info</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox warning material animated" /> Warning</label>
+                        <label><input name="radio9" type="radio" class="radio color-warning is-material" /> Warning</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox danger material animated" /> Danger</label>
+                        <label><input name="radio9" type="radio" class="radio color-danger is-material" /> Danger</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox light material animated" /> Light</label>
+                        <label><input name="radio9" type="radio" class="radio color-light is-material" /> Light</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox dark material animated" /> Dark</label>
+                        <label><input name="radio9" type="radio" class="radio color-dark is-material" /> Dark</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox dark material animated" disabled checked /> Primary checked disabled</label>
+                        <label><input name="radio9" type="radio" class="radio color-dark is-material" disabled checked /> Primary checked disabled</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="checkbox primary material animated" disabled /> Secondary disabled</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio primary material animated" /> Primary</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio secondary material animated" /> Secondary</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio info material animated" /> Info</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio warning material animated" /> Warning</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio danger material animated" /> Danger</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio light material animated" /> Light</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio dark material animated" /> Dark</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio dark material animated" disabled checked /> Primary checked disabled</label>
-                    </div>
-                    <div class="form-group mb-0">
-                        <label><input name="radio9" type="radio" class="radio primary material animated" disabled /> Secondary disabled</label>
+                        <label><input name="radio9" type="radio" class="radio color-primary is-material" disabled /> Secondary disabled</label>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle primary material" /> Primary</label>
+                        <label><input type="checkbox" class="toggle color-primary is-material" /> Primary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle secondary material" /> Secondary</label>
+                        <label><input type="checkbox" class="toggle color-secondary is-material" /> Secondary</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle info material" /> Info</label>
+                        <label><input type="checkbox" class="toggle color-info is-material" checked /> Info</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input type="checkbox" class="toggle warning material" /> Warning</label>
+                        <label><input type="checkbox" class="toggle color-warning is-material" checked /> Warning</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio10" type="radio" class="toggle danger material" /> Danger</label>
+                        <label><input name="radio10" type="radio" class="toggle color-danger is-material" /> Danger</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio10" type="radio" class="toggle light material" /> Light</label>
+                        <label><input name="radio10" type="radio" class="toggle color-light is-material" /> Light</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio10" type="radio" class="toggle dark material" /> Dark</label>
+                        <label><input name="radio10" type="radio" class="toggle color-dark is-material" /> Dark</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio10" type="radio" class="toggle dark material" disabled checked /> Primary checked disabled</label>
+                        <label><input name="radio10" type="radio" class="toggle color-dark is-material" disabled checked /> Primary checked disabled</label>
                     </div>
                     <div class="form-group mb-0">
-                        <label><input name="radio10" type="radio" class="toggle primary material" disabled /> Secondary disabled</label>
+                        <label><input name="radio10" type="radio" class="toggle color-primary is-material" disabled /> Secondary disabled</label>
                     </div>
                 </div>
             </div>
+            <hr />
+            <h3 class="lead my-3">Sizing</h3>
+            <div class="form-group">
+                <label class="mr-1"><input type="checkbox" class="checkbox color-primary" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-secondary" checked /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-info" /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-warning" /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-danger" checked /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-light" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-dark" /> Dark</label>
+            </div>
+            <div class="form-group">
+                <label class="mr-1"><input type="checkbox" class="checkbox color-primary is-large" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-secondary is-large" /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-info is-large" checked /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-warning is-large" checked /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-danger is-large" /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-light is-large" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-dark is-large" /> Dark</label>
+            </div>
+            <div class="form-group">
+                <label class="mr-1"><input type="checkbox" class="checkbox color-primary is-small" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-secondary is-small" /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-info is-small" /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-warning is-small" /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-danger is-small" checked /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-light is-small" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="checkbox color-dark is-small" checked /> Dark</label>
+            </div>
+            <div class="form-group">
+                <input name="radio11" type="radio" class="radio color-primary mr-1" checked />
+                <input name="radio11" type="radio" class="radio color-secondary mr-1" />
+                <input name="radio11" type="radio" class="radio color-info mr-1" />
+                <input name="radio11" type="radio" class="radio color-warning mr-1" />
+                <input name="radio11" type="radio" class="radio color-danger mr-1" />
+                <input name="radio11" type="radio" class="radio color-light mr-1" />
+                <input name="radio11" type="radio" class="radio color-dark mr-1" />
+            </div>
+            <div class="form-group">
+                <input name="radio12" type="radio" class="radio color-primary is-large mr-1" />
+                <input name="radio12" type="radio" class="radio color-secondary is-large mr-1" />
+                <input name="radio12" type="radio" class="radio color-info is-large mr-1" checked />
+                <input name="radio12" type="radio" class="radio color-warning is-large mr-1" />
+                <input name="radio12" type="radio" class="radio color-danger is-large mr-1" />
+                <input name="radio12" type="radio" class="radio color-light is-large mr-1" />
+                <input name="radio12" type="radio" class="radio color-dark is-large mr-1" />
+            </div>
+            <div class="form-group">
+                <input name="radio13" type="radio" class="radio color-primary is-small mr-1" />
+                <input name="radio13" type="radio" class="radio color-secondary is-small mr-1" />
+                <input name="radio13" type="radio" class="radio color-info is-small mr-1" />
+                <input name="radio13" type="radio" class="radio color-warning is-small mr-1" />
+                <input name="radio13" type="radio" class="radio color-danger is-small mr-1" checked />
+                <input name="radio13" type="radio" class="radio color-light is-small mr-1" />
+                <input name="radio13" type="radio" class="radio color-dark is-small mr-1" />
+            </div>
+            <div class="form-group">
+                <label class="mr-1"><input type="checkbox" class="toggle color-primary" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-secondary" checked /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-info" /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-warning" /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-danger" checked /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-light" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-dark" /> Dark</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" class="toggle color-primary is-large mr-1" checked />
+                <input type="checkbox" class="toggle color-secondary is-large mr-1" />
+                <input type="checkbox" class="toggle color-info is-large mr-1" checked />
+                <input type="checkbox" class="toggle color-warning is-large mr-1" checked />
+                <input type="checkbox" class="toggle color-danger is-large mr-1" />
+                <input type="checkbox" class="toggle color-light is-large mr-1" />
+                <input type="checkbox" class="toggle color-dark is-large mr-1" />
+            </div>
+            <div class="form-group">
+                <label class="mr-1"><input type="checkbox" class="toggle color-primary is-small" checked /> Primary</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-secondary is-small" /> Secondary</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-info is-small" /> Info</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-warning is-small" /> Warning</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-danger is-small" checked /> Danger</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-light is-small" /> Light</label>
+                <label class="mr-1"><input type="checkbox" class="toggle color-dark is-small" checked /> Dark</label>
+            </div>
+            <hr />
+            <h3 class="lead my-3">Extras</h3>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="checkbox color-primary has-animation" checked /> Default nimation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="checkbox color-secondary is-outline has-animation" /> Outline animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="checkbox color-info is-material has-animation" /> Material animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="radio color-warning is-hoverable" /> Hoverable adio checkbox</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="radio color-danger is-outline" checked /> Radio checkbox outline</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="checkbox color-light is-material has-animation" checked /> With animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="checkbox color-dark is-hoverable is-rounded" /> Hoverable rounded checkbox</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="checkbox color-primary is-circle is-hoverable" checked /> Hoverable circle checkbox</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="checkbox color-danger is-circle has-animation" /> Circle checkbox with animation</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="checkbox color-primary" /> Am I a checkbox?</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="checkbox color-secondary" /> Another checkbox?</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="radio color-info has-animation" /> Radio animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="radio color-warning is-outline has-animation" /> Outline animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="radio color-danger is-hoverable" /> Hoverable</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="radio color-primary is-outline is-hoverable" /> Outline hoverable</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="radio color-dark is-rounded" /> Rounded radio</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="radio color-info is-square" checked /> Square radio!</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio14" type="radio" class="radio color-secondary is-outline is-square" /> Square outline</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="toggle color-primary has-animation" /> Default animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="toggle color-secondary is-outline has-animation" /> Outline animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="toggle color-info is-material has-animation" checked /> Material animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input type="checkbox" class="toggle color-warning is-square" checked /> Square toggle</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio15" type="radio" class="toggle color-danger is-square is-outline has-animation" /> Square outline toggle with animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio15" type="radio" class="toggle color-light is-square is-material" /> Material square!</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio15" type="radio" class="toggle color-dark is-square is-material has-animation" /> Material square with animation</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio15" type="radio" class="toggle color-warning is-material" disabled checked /> Warning checked disabled</label>
+                    </div>
+                    <div class="form-group mb-0">
+                        <label><input name="radio15" type="radio" class="toggle color-secondary is-material" disabled /> Secondary disabled</label>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <h3 class="lead my-3">Want even more?</h3>
+            <p>Go ahead, fork my <a href="https://github.com/alexdonh/toggle-checkbox-radio">Github repo</a> and modify it yourself. It is fully customizable.</p>
         </form>
     </div>
     <footer>
@@ -383,13 +543,13 @@
         </div>
     </footer>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-71198058-2', 'auto');
         ga('send', 'pageview');

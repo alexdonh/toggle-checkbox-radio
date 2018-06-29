@@ -53,6 +53,11 @@ Checkout the [samples](https://alexdonh.github.io/toggle-checkbox-radio/) page f
 * NO dependencies ;)
 
 
+## Support
+
+All major browsers. Well... latest ones.
+
+
 ## Author
 
 [Alex Do](https://github.com/alexdonh)
@@ -60,7 +65,7 @@ Checkout the [samples](https://alexdonh.github.io/toggle-checkbox-radio/) page f
 
 ## Copyright and license
 
-Copyright © 2017 Alex Do.
+Copyright © 2018 Alex Do.
 
 Licensed under [the MIT License][license].
 
