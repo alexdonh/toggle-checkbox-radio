@@ -32,16 +32,16 @@ Several quick start options are available:
 2. Add `toggle`, `checkbox` or `radio` class:
 
 ```
-<label class="toggle">
-	<input type="checkbox" /> This is a toggle
+<label>
+	<input type="checkbox" class="toggle" /> This is a toggle
 </label>
 
-<label class="checkbox">
-	<input type="checkbox" /> And this is a checkbox
+<label>
+	<input type="checkbox" class="checkbox" /> And this is a checkbox
 </label>
 
 <label class="radio">
-	<input type="radio" /> I'm a radio button
+	<input type="radio" class="radio" /> I'm a radio button
 </label>
 ```
 
