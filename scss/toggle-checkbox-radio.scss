@@ -145,7 +145,7 @@
 
       &:active,
       &:focus {
-        border-color: $input-focus-color;
+        border-color: $input-focus-border-color;
       }
 
       &:before {
@@ -280,7 +280,7 @@
 
       &:active,
       &:focus {
-        border-color: $input-focus-color;
+        border-color: $input-focus-border-color;
       }
 
       &:before {
