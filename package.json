@@ -1,6 +1,6 @@
 {
   "name": "toggle-checkbox-radio",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "CSS only, bootstrap compatible toggle, checkbox and radio buttons",
   "directories": {
     "doc": "docs"

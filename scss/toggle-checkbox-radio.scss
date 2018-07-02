@@ -72,13 +72,14 @@
       }
 
       &.is-material {
-        margin: .25em .125rem;
+        margin: .275em .175rem;
 
         &:before {
-          width: $input-size-base + .25rem;
-          height: $input-size-base + .25rem;
-          top: -.25rem;
-          left: -.25rem;
+          width: $input-size-base + .325rem;
+          height: $input-size-base + .325rem;
+          top: 50%;
+          transform: translateY(-50%);
+          left: -.325rem;
         }
 
         &:checked {
@@ -156,8 +157,8 @@
         right: 0;
         top: 12.5%;
         height: 50%;
-        border-left: $input-border-width transparent solid;
-        border-bottom: $input-border-width transparent solid;
+        border-left: 2px transparent solid;
+        border-bottom: 2px transparent solid;
         transform: rotate(-45deg);
       }
 
@@ -205,6 +206,8 @@
           height: $input-size-base / 2;
           border-top: none;
           border-right: none;
+          border-bottom-width: 2px;
+          border-left-width: 2px;
           transform: rotate(-45deg) translate(12.5%, -12.5%);
           background-color: transparent !important;
         }
